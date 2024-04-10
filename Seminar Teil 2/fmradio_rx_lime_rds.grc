@@ -270,7 +270,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    comment: ''
+    comment: (samp_rate / decimation) / (2*math.pi*75000)
     gain: (samp_rate / decimation) / (2*math.pi*75000)
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -278,7 +278,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [520, 284.0]
+    coordinate: [472, 268.0]
     rotation: 0
     state: true
 - name: audio_sink_0
@@ -705,7 +705,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: (samp_rate / decimation) *2.0
+    bw: '5000000'
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -718,10 +718,10 @@ blocks:
     color9: '"dark green"'
     comment: ''
     ctrlpanel: 'False'
-    fc: '0'
+    fc: '99900000'
     fftsize: '1024'
     freqhalf: 'True'
-    grid: 'False'
+    grid: 'True'
     gui_hint: ''
     label: Relative Gain
     label1: ''
@@ -760,7 +760,7 @@ blocks:
     width9: '1'
     wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
-    ymin: '-140'
+    ymin: '-100'
   states:
     bus_sink: false
     bus_source: false
@@ -925,7 +925,7 @@ blocks:
   parameters:
     affinity: ''
     alias: ''
-    bandwidth: '0.0'
+    bandwidth: '300000'
     center_freq: freq_tune
     comment: ''
     dev_args: ''

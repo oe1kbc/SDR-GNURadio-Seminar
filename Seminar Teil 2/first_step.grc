@@ -11,7 +11,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: first
+    id: first_step
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -22,7 +22,7 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: GNURadio-Seminar First Demo
+    title: Audio Funktion
     window_size: (1000,1000)
   states:
     bus_sink: false
@@ -60,14 +60,14 @@ blocks:
     samp_rate: samp_rate
     showports: 'False'
     type: float
-    waveform: analog.GR_SAW_WAVE
+    waveform: analog.GR_COS_WAVE
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [56, 172.0]
+    coordinate: [224, 160.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: audio_sink_0
   id: audio_sink
   parameters:
@@ -77,14 +77,14 @@ blocks:
     device_name: default
     num_inputs: '1'
     ok_to_block: 'True'
-    samp_rate: '48000'
+    samp_rate: samp_rate
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 204.0]
+    coordinate: [496, 308.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: qtgui_sink_x_0
   id: qtgui_sink_x
   parameters:
@@ -92,17 +92,17 @@ blocks:
     alias: ''
     bw: samp_rate
     comment: ''
-    fc: '0'
+    fc: '1750'
     fftsize: '1024'
     gui_hint: ''
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: '""'
+    name: Analyse Grafik
     plotconst: 'True'
     plotfreq: 'True'
     plottime: 'True'
     plotwaterfall: 'True'
-    rate: '10'
+    rate: '5'
     showports: 'False'
     showrf: 'False'
     type: float
@@ -111,7 +111,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [336, 292.0]
+    coordinate: [496, 164.0]
     rotation: 0
     state: enabled
 

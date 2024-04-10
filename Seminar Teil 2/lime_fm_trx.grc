@@ -439,8 +439,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [192, 456.0]
-    rotation: 180
+    coordinate: [808, 712.0]
+    rotation: 0
     state: enabled
 - name: qtgui_waterfall_sink_x_0
   id: qtgui_waterfall_sink_x
@@ -500,8 +500,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 620.0]
-    rotation: 180
+    coordinate: [816, 860.0]
+    rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
@@ -552,10 +552,10 @@ connections:
 - [blocks_multiply_const_vxx_0, '0', blocks_add_xx_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', blocks_add_xx_0, '1']
 - [blocks_multiply_const_vxx_0_0_0, '0', low_pass_filter_0, '0']
-- [blocks_multiply_const_vxx_0_1, '0', qtgui_freq_sink_x_0_0, '0']
-- [blocks_multiply_const_vxx_0_1, '0', qtgui_waterfall_sink_x_0, '0']
 - [blocks_multiply_const_vxx_0_1, '0', rational_resampler_xxx_0, '0']
 - [low_pass_filter_0, '0', analog_nbfm_tx_0, '0']
+- [rational_resampler_xxx_0, '0', qtgui_freq_sink_x_0_0, '0']
+- [rational_resampler_xxx_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [rational_resampler_xxx_0, '0', soapy_limesdr_sink_0, '0']
 
 metadata:
