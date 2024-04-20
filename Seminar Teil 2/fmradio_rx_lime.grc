@@ -392,6 +392,30 @@ blocks:
     bus_structure: null
     coordinate: [64, 324.0]
     rotation: 0
+    state: disabled
+- name: soapy_rtlsdr_source_0
+  id: soapy_rtlsdr_source
+  parameters:
+    affinity: ''
+    agc: 'False'
+    alias: ''
+    bias: 'False'
+    bufflen: '16384'
+    center_freq: center_freq
+    comment: ''
+    dev_args: ''
+    freq_correction: '0'
+    gain: rx_gain
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fc32
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 452.0]
+    rotation: 0
     state: enabled
 
 connections:
@@ -402,6 +426,9 @@ connections:
 - [soapy_limesdr_source_0, '0', low_pass_filter_0, '0']
 - [soapy_limesdr_source_0, '0', qtgui_freq_sink_x_0, '0']
 - [soapy_limesdr_source_0, '0', qtgui_waterfall_sink_x_0, '0']
+- [soapy_rtlsdr_source_0, '0', low_pass_filter_0, '0']
+- [soapy_rtlsdr_source_0, '0', qtgui_freq_sink_x_0, '0']
+- [soapy_rtlsdr_source_0, '0', qtgui_waterfall_sink_x_0, '0']
 
 metadata:
   file_format: 1
