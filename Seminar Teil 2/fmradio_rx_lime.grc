@@ -392,7 +392,7 @@ blocks:
     bus_structure: null
     coordinate: [64, 324.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: soapy_rtlsdr_source_0
   id: soapy_rtlsdr_source
   parameters:
@@ -403,7 +403,7 @@ blocks:
     bufflen: '16384'
     center_freq: center_freq
     comment: ''
-    dev_args: ''
+    dev_args: driver=lime,soapy=0
     freq_correction: '0'
     gain: rx_gain
     maxoutbuf: '0'
@@ -416,7 +416,7 @@ blocks:
     bus_structure: null
     coordinate: [80, 452.0]
     rotation: 0
-    state: enabled
+    state: disabled
 
 connections:
 - [analog_wfm_rcv_0, '0', blocks_multiply_const_vxx_0, '0']

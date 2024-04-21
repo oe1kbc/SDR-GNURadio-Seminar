@@ -1,6 +1,6 @@
 options:
   parameters:
-    author: OE1KBC
+    author: ''
     catch_exceptions: 'True'
     category: '[GRC Hier Blocks]'
     cmake_opt: ''
@@ -22,286 +22,158 @@ options:
     run_options: prompt
     sizing_mode: fixed
     thread_safe_setters: ''
-    title: LIME TRX
+    title: ''
     window_size: (1000,1000)
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 8]
+    coordinate: [32, 28.0]
     rotation: 0
     state: enabled
 
 blocks:
-- name: enable_tone
-  id: variable_qtgui_chooser
-  parameters:
-    comment: ''
-    gui_hint: ''
-    label: TONE/MIC Chooser
-    label0: Send 1750Hz Tone
-    label1: Send with Mic
-    label2: ''
-    label3: ''
-    label4: ''
-    labels: '[]'
-    num_opts: '2'
-    option0: '0'
-    option1: '1'
-    option2: '2'
-    option3: '3'
-    option4: '4'
-    options: '[0, 1, 2]'
-    orient: Qt.QHBoxLayout
-    type: int
-    value: '1'
-    widget: radio_buttons
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [480, 12.0]
-    rotation: 0
-    state: enabled
-- name: freq
+- name: center_freq
   id: variable_qtgui_range
   parameters:
     comment: ''
-    gui_hint: ''
-    label: TX Frequenz
-    min_len: '20'
+    gui_hint: 2,0,1,1
+    label: Center Frequency
+    min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
-    start: '431000000'
+    start: '431500000'
     step: '12500'
     stop: '432000000'
     value: '431675000'
-    widget: eng_slider
+    widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1024, 12.0]
+    coordinate: [200, 132.0]
     rotation: 0
     state: enabled
-- name: out_rate
-  id: variable
-  parameters:
-    comment: ''
-    value: '1000000'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [288, 12.0]
-    rotation: 0
-    state: enabled
-- name: ptt
-  id: variable_qtgui_toggle_button_msg
-  parameters:
-    comment: ''
-    gui_hint: ''
-    initPressed: 'False'
-    label: PTT ON/OFF
-    outputmsgname: value
-    pressBackgroundColor: default
-    pressFontColor: default
-    pressed: '1'
-    relBackgroundColor: default
-    relFontColor: default
-    released: '0'
-    type: int
-    value: '0'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [808, 12.0]
-    rotation: 0
-    state: enabled
-- name: quad_rate
-  id: variable
-  parameters:
-    comment: ''
-    value: '32000'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [376, 12.0]
-    rotation: 0
-    state: enabled
-- name: rf_gain
+- name: rx_gain
   id: variable_qtgui_range
   parameters:
     comment: ''
-    gui_hint: ''
-    label: RF gain
-    min_len: '20'
+    gui_hint: 3,0,1,1
+    label: Rx Gain
+    min_len: '200'
     orient: QtCore.Qt.Horizontal
-    rangeType: float
+    rangeType: int
     start: '0'
     step: '1'
-    stop: '40'
+    stop: '60'
     value: '30'
-    widget: eng_slider
+    widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1200, 12.0]
+    coordinate: [368, 132.0]
     rotation: 0
     state: enabled
 - name: samp_rate
   id: variable
   parameters:
     comment: ''
-    value: '8000'
+    value: '2000000'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [552, 28.0]
+    rotation: 0
+    state: enabled
+- name: signal_bandwidth
+  id: variable
+  parameters:
+    comment: "Adjust this value to set the \nbandwidth of the signal"
+    value: '5000000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [384, 28.0]
     rotation: 0
     state: enabled
 - name: volume
   id: variable_qtgui_range
   parameters:
     comment: ''
-    gui_hint: ''
-    label: Audio Gain
-    min_len: '20'
+    gui_hint: 4,0,1,1
+    label: Volume
+    min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
     start: '0'
-    step: '0.1'
-    stop: '2'
-    value: '0.5'
+    step: '0.01'
+    stop: '1'
+    value: '0.3'
     widget: dial
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [656, 12.0]
+    coordinate: [32, 132.0]
     rotation: 0
     state: enabled
-- name: analog_nbfm_tx_0
-  id: analog_nbfm_tx
+- name: analog_nbfm_rx_0
+  id: analog_nbfm_rx
   parameters:
     affinity: ''
     alias: ''
-    audio_rate: '8000'
+    audio_rate: '48000'
     comment: ''
-    fh: '-1.0'
     max_dev: 5e3
     maxoutbuf: '0'
     minoutbuf: '0'
-    quad_rate: '32000'
+    quad_rate: '192000'
     tau: 75e-6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [800, 380.0]
-    rotation: 180
+    coordinate: [640, 156.0]
+    rotation: 0
     state: enabled
-- name: analog_sig_source_x_0
-  id: analog_sig_source_x
+- name: analog_wfm_rcv_0
+  id: analog_wfm_rcv
   parameters:
     affinity: ''
     alias: ''
-    amp: '0.1'
+    audio_decimation: '4'
     comment: ''
-    freq: '162.2'
     maxoutbuf: '0'
     minoutbuf: '0'
-    offset: '0'
-    phase: '0'
-    samp_rate: '8000.0'
-    showports: 'False'
-    type: float
-    waveform: analog.GR_COS_WAVE
+    quad_rate: samp_rate/4
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [40, 212.0]
+    coordinate: [632, 268.0]
     rotation: 0
-    state: enabled
-- name: audio_source_0
-  id: audio_source
+    state: disabled
+- name: audio_sink_0
+  id: audio_sink
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    device_name: Mikrofon
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_outputs: '1'
+    device_name: ''
+    num_inputs: '1'
     ok_to_block: 'True'
-    samp_rate: samp_rate
+    samp_rate: '48000'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [40, 364.0]
-    rotation: 0
-    state: enabled
-- name: blocks_add_xx_0
-  id: blocks_add_xx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_inputs: '2'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [536, 224.0]
+    coordinate: [632, 484.0]
     rotation: 0
     state: enabled
 - name: blocks_multiply_const_vxx_0
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: not enable_tone
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [320, 212.0]
-    rotation: 0
-    state: enabled
-- name: blocks_multiply_const_vxx_0_0
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    const: enable_tone
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: float
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [320, 268.0]
-    rotation: 0
-    state: enabled
-- name: blocks_multiply_const_vxx_0_0_0
   id: blocks_multiply_const_vxx
   parameters:
     affinity: ''
@@ -316,26 +188,8 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [672, 236.0]
-    rotation: 0
-    state: enabled
-- name: blocks_multiply_const_vxx_0_1
-  id: blocks_multiply_const_vxx
-  parameters:
-    affinity: ''
-    alias: ptt
-    comment: ''
-    const: ptt
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [560, 412.0]
-    rotation: 180
+    coordinate: [876.0, 288]
+    rotation: 270
     state: enabled
 - name: low_pass_filter_0
   id: low_pass_filter
@@ -344,24 +198,37 @@ blocks:
     alias: ''
     beta: '6.76'
     comment: ''
-    cutoff_freq: '4000'
-    decim: '1'
-    gain: '1'
+    cutoff_freq: '100000.0'
+    decim: '4'
+    gain: '1.0'
     interp: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
     samp_rate: samp_rate
-    type: fir_filter_fff
-    width: '500'
-    win: window.WIN_HAMMING
+    type: fir_filter_ccf
+    width: '1000000.0'
+    win: window.WIN_KAISER
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 188.0]
+    coordinate: [368, 292.0]
     rotation: 0
     state: enabled
-- name: qtgui_freq_sink_x_0_0
+- name: note_0
+  id: note
+  parameters:
+    alias: ''
+    comment: ''
+    note: group member of pulse, pulse-access, and audio
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [208, 28.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_freq_sink_x_0
   id: qtgui_freq_sink_x
   parameters:
     affinity: ''
@@ -379,7 +246,7 @@ blocks:
     autoscale: 'False'
     average: '1.0'
     axislabels: 'True'
-    bw: '2000000'
+    bw: samp_rate
     color1: '"blue"'
     color10: '"dark blue"'
     color2: '"red"'
@@ -392,35 +259,35 @@ blocks:
     color9: '"dark green"'
     comment: ''
     ctrlpanel: 'False'
-    fc: freq
-    fftsize: '2048'
+    fc: center_freq
+    fftsize: '1024'
     freqhalf: 'True'
     grid: 'True'
-    gui_hint: 0,0,1,2
+    gui_hint: ''
     label: Relative Gain
     label1: ''
-    label10: ''
-    label2: ''
-    label3: ''
-    label4: ''
-    label5: ''
-    label6: ''
-    label7: ''
-    label8: ''
-    label9: ''
+    label10: ''''''
+    label2: ''''''
+    label3: ''''''
+    label4: ''''''
+    label5: ''''''
+    label6: ''''''
+    label7: ''''''
+    label8: ''''''
+    label9: ''''''
     legend: 'True'
     maxoutbuf: '0'
     minoutbuf: '0'
-    name: NBFM Signal
+    name: '""'
     nconnections: '1'
     norm_window: 'False'
-    showports: 'True'
+    showports: 'False'
     tr_chan: '0'
     tr_level: '0.0'
     tr_mode: qtgui.TRIG_MODE_FREE
     tr_tag: '""'
     type: complex
-    units: dBm
+    units: dB
     update_time: '0.10'
     width1: '1'
     width10: '1'
@@ -434,12 +301,12 @@ blocks:
     width9: '1'
     wintype: window.WIN_BLACKMAN_hARRIS
     ymax: '10'
-    ymin: '-140'
+    ymin: '-100'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [808, 712.0]
+    coordinate: [368, 548.0]
     rotation: 0
     state: enabled
 - name: qtgui_waterfall_sink_x_0
@@ -458,7 +325,7 @@ blocks:
     alpha8: '1.0'
     alpha9: '1.0'
     axislabels: 'True'
-    bw: '250000'
+    bw: samp_rate
     color1: '0'
     color10: '0'
     color2: '0'
@@ -470,10 +337,10 @@ blocks:
     color8: '0'
     color9: '0'
     comment: ''
-    fc: freq
+    fc: '0'
     fftsize: '1024'
     freqhalf: 'True'
-    grid: 'False'
+    grid: 'True'
     gui_hint: ''
     int_max: '10'
     int_min: '-140'
@@ -500,7 +367,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [816, 860.0]
+    coordinate: [368, 460.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0
@@ -509,54 +376,80 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    decim: '32000'
+    decim: (int)((samp_rate/16)/1000)
     fbw: '0'
-    interp: '1000000'
+    interp: '48'
     maxoutbuf: '0'
     minoutbuf: '0'
-    taps: '[]'
-    type: ccc
+    taps: ''
+    type: fff
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [552, 572.0]
-    rotation: 0
+    coordinate: [632, 356.0]
+    rotation: 180
     state: enabled
-- name: soapy_limesdr_sink_0
-  id: soapy_limesdr_sink
+- name: soapy_limesdr_source_0
+  id: soapy_limesdr_source
   parameters:
     affinity: ''
     alias: ''
-    bandwidth: '2000000'
-    center_freq: freq
+    bandwidth: '0'
+    center_freq: center_freq
     comment: ''
     dev_args: driver=lime,soapy=0
     freq_correction: '0'
-    gain: rf_gain
-    samp_rate: '1000000'
+    gain: rx_gain
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
     type: fc32
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [824, 596.0]
+    coordinate: [64, 324.0]
     rotation: 0
     state: enabled
+- name: soapy_rtlsdr_source_0
+  id: soapy_rtlsdr_source
+  parameters:
+    affinity: ''
+    agc: 'False'
+    alias: ''
+    bias: 'False'
+    bufflen: '16384'
+    center_freq: center_freq
+    comment: ''
+    dev_args: driver=lime,soapy=0
+    freq_correction: '0'
+    gain: rx_gain
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    samp_rate: samp_rate
+    type: fc32
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [80, 452.0]
+    rotation: 0
+    state: disabled
 
 connections:
-- [analog_nbfm_tx_0, '0', blocks_multiply_const_vxx_0_1, '0']
-- [analog_sig_source_x_0, '0', blocks_multiply_const_vxx_0, '0']
-- [audio_source_0, '0', blocks_multiply_const_vxx_0_0, '0']
-- [blocks_add_xx_0, '0', blocks_multiply_const_vxx_0_0_0, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_add_xx_0, '0']
-- [blocks_multiply_const_vxx_0_0, '0', blocks_add_xx_0, '1']
-- [blocks_multiply_const_vxx_0_0_0, '0', low_pass_filter_0, '0']
-- [blocks_multiply_const_vxx_0_1, '0', rational_resampler_xxx_0, '0']
-- [low_pass_filter_0, '0', analog_nbfm_tx_0, '0']
-- [rational_resampler_xxx_0, '0', qtgui_freq_sink_x_0_0, '0']
-- [rational_resampler_xxx_0, '0', qtgui_waterfall_sink_x_0, '0']
-- [rational_resampler_xxx_0, '0', soapy_limesdr_sink_0, '0']
+- [analog_nbfm_rx_0, '0', blocks_multiply_const_vxx_0, '0']
+- [analog_wfm_rcv_0, '0', blocks_multiply_const_vxx_0, '0']
+- [blocks_multiply_const_vxx_0, '0', rational_resampler_xxx_0, '0']
+- [low_pass_filter_0, '0', analog_nbfm_rx_0, '0']
+- [low_pass_filter_0, '0', analog_wfm_rcv_0, '0']
+- [rational_resampler_xxx_0, '0', audio_sink_0, '0']
+- [soapy_limesdr_source_0, '0', low_pass_filter_0, '0']
+- [soapy_limesdr_source_0, '0', qtgui_freq_sink_x_0, '0']
+- [soapy_limesdr_source_0, '0', qtgui_waterfall_sink_x_0, '0']
+- [soapy_rtlsdr_source_0, '0', low_pass_filter_0, '0']
+- [soapy_rtlsdr_source_0, '0', qtgui_freq_sink_x_0, '0']
+- [soapy_rtlsdr_source_0, '0', qtgui_waterfall_sink_x_0, '0']
 
 metadata:
   file_format: 1
