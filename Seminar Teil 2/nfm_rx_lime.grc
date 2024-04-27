@@ -58,7 +58,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '1000000'
+    value: '500000'
   states:
     bus_sink: false
     bus_source: false
@@ -108,10 +108,10 @@ blocks:
     min_len: '200'
     orient: QtCore.Qt.Horizontal
     rangeType: float
-    start: '431500000'
+    start: '430000000'
     step: '12500'
-    stop: '432000000'
-    value: '431675000'
+    stop: '444000000'
+    value: '438950000'
     widget: counter_slider
   states:
     bus_sink: false

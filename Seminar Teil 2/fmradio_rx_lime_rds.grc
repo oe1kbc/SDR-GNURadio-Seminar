@@ -928,7 +928,7 @@ blocks:
     bandwidth: samp_rate
     center_freq: freq_tune
     comment: ''
-    dev_args: driver=LimeSDR,soapy=0
+    dev_args: driver=lime,soapy=0
     freq_correction: '0'
     gain: gain
     maxoutbuf: '0'

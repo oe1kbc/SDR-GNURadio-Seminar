@@ -75,7 +75,7 @@ blocks:
     start: '431000000'
     step: '12500'
     stop: '432000000'
-    value: '431675000'
+    value: '431350000'
     widget: eng_slider
   states:
     bus_sink: false
